@@ -8,23 +8,27 @@ import numpy as np
 from PIL import Image
 
 
-inputFloatData = np.array([[0.1, 0.3, 0.5],
-              [0.7, 2, 3.2],
-             [1, 2, 3],
-              [2.3, 0.2, 0.5]], np.float32)
+inputFloatData = np.array([[11, 0.3, 0.5, 0.1, 0.3, 0.5, 1, 0.3, 0.5, 0.1, 0.3, 0.5, 1, 1, 0.4],
+              [0.3, 0.3, 0.5, 3, 0, 0.5, 0.1, 0.3, 0.5, 6, 0.3, 0.5, 6, 0.3, 0.5],
+             [1, 0.3, 0.5, 0.1, 0.3, 0.5, 0, 0.3, 0.5, 0.1, 0.3, 0.5, 6, 0.3, 0.8],
+              [2, 0, 0.5, 0, 0.3, 0, 0.1, 0.3, 0.5, 0.1, 6, 0.5, 0.1, 6, 6],
+              [0.1, 0.3, 0.5, 0.1, 0.3, 9, 1, 0.3, 0.5, 0.1, 0.3, 0.5, 1, 1, 0.4],
+              [0.3, 0.3, 0.5, 3, 0, 0.5, 0.1, 4, 0.5, 6, 0.3, 0.5, 6, 0.3, 0.5],
+             [1, 0.3, 0.5, 0.1, 0.3, 0.5, 0, 5, 0.5, 0.1, 0.3, 0.5, 6, 0.3, 0.8],
+              [2, 0, 0.5, 0, 0.3, 0, 0.1, 0.3, 0.5, 0.1, 6, 0.5, 0.1, 6, 0.1]], np.float32)
+
+x = np.linspace(0,1,12*12)
+
 type(inputFloatData)
 
 #print(inputFloatData.shape)
 
-
 print(inputFloatData)
-
-
+print(x)
 image = Image.fromarray(inputFloatData)
 print(type(image))
-
-# summarize image details
 print(image.mode)
 print(image.size)
 
-gr_im= Image.fromarray(inputFloatData).save('normalMap.tiff')
+outputImage = Image.fromarray(inputFloatData).save('greyscaleMap.tiff')
+outputImage = Image.fromarray(x).save('greyscaleMap2.tiff')
